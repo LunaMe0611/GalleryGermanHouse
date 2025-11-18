@@ -11,7 +11,7 @@ body {
     background: #000;
 }
 
-/* Фоновая картинка - БЕЗ обрезки, сохраняем пропорции */
+/* Background image - NO cropping */
 .background-image {
     position: fixed;
     top: 0;
@@ -33,7 +33,7 @@ body {
     object-fit: contain;
 }
 
-/* Контейнер для кружков */
+/* Circles container */
 .circles-container {
     position: absolute;
     top: 0;
@@ -42,7 +42,7 @@ body {
     height: 100%;
 }
 
-/* Стили кружков */
+/* Circle styles */
 .circle {
     position: absolute;
     width: 50px;
@@ -74,8 +74,8 @@ body {
     border-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Позиционирование кружков ВНУТРИ изображения */
-/* Левая сторона (1-12) */
+/* Circle positioning INSIDE the image */
+/* Left side (1-12) */
 .circle-1 { top: 15%; left: 25%; }
 .circle-2 { top: 20%; left: 30%; }
 .circle-3 { top: 25%; left: 25%; }
@@ -89,7 +89,7 @@ body {
 .circle-11 { top: 65%; left: 25%; }
 .circle-12 { top: 70%; left: 30%; }
 
-/* Правая сторона (13-24) */
+/* Right side (13-24) */
 .circle-13 { top: 15%; right: 25%; }
 .circle-14 { top: 20%; right: 30%; }
 .circle-15 { top: 25%; right: 25%; }
@@ -103,7 +103,7 @@ body {
 .circle-23 { top: 65%; right: 25%; }
 .circle-24 { top: 70%; right: 30%; }
 
-/* Простая кнопка добавления */
+/* Simple add button */
 .simple-add-btn {
     position: fixed;
     bottom: 30px;
@@ -129,7 +129,7 @@ body {
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Простое модальное окно */
+/* Simple modal */
 .simple-modal {
     position: fixed;
     top: 0;
@@ -214,7 +214,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Адаптив для телефонов */
+/* Mobile adaptation */
 @media (max-width: 768px) {
     .circle {
         width: 40px;
@@ -222,7 +222,7 @@ body {
         font-size: 14px;
     }
     
-    /* Более компактное расположение на телефонах */
+    /* More compact positioning on mobile */
     .circle-1 { top: 15%; left: 20%; }
     .circle-2 { top: 20%; left: 25%; }
     .circle-3 { top: 25%; left: 20%; }
@@ -258,7 +258,7 @@ body {
     }
 }
 
-/* Для очень широких экранов */
+/* For very wide screens */
 @media (min-width: 2000px) {
     .circle {
         width: 45px;
@@ -266,7 +266,7 @@ body {
         font-size: 16px;
     }
     
-    /* Сдвигаем кружки ближе к центру на широких экранах */
+    /* Move circles closer to center on wide screens */
     .circle-1 { left: 30%; }
     .circle-2 { left: 35%; }
     .circle-3 { left: 30%; }
