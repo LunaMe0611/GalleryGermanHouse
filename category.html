@@ -1,23 +1,46 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Категория - Галерея</title>
+    <title>Category - Photo Gallery</title>
     <link rel="stylesheet" href="category.css">
 </head>
 <body>
     <div class="category-container">
         <header class="category-header">
-            <button class="back-btn" onclick="goBack()">← Назад</button>
-            <h1 class="category-title" id="categoryTitle">Категория</h1>
+            <button class="back-btn" onclick="goBack()">← Back</button>
+            <h1 class="category-title" id="categoryTitle">Category</h1>
         </header>
 
         <div class="photos-grid" id="photosGrid">
-            <!-- Фотографии будут добавляться через JS -->
+            <!-- Photos will be added via JS -->
         </div>
     </div>
 
+    <!-- Comments modal -->
+    <div id="commentsModal" class="comments-modal" style="display: none;">
+        <div class="comments-modal-content">
+            <span class="comments-close" onclick="closeCommentsModal()">&times;</span>
+            <h3 id="commentsCategoryTitle">Category Comments</h3>
+            
+            <!-- Add comment form -->
+            <div class="comment-form">
+                <input type="text" id="commentAuthor" placeholder="Your name" required maxlength="50">
+                <textarea id="commentText" placeholder="Your comment..." required maxlength="500"></textarea>
+                <button onclick="addNewComment()">Add Comment</button>
+            </div>
+            
+            <!-- Comments list -->
+            <div class="comments-list" id="commentsList">
+                <!-- Comments will be here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Include scripts -->
+    <script src="config.js"></script>
+    <script src="comments-github.js"></script>
     <script src="category.js"></script>
 </body>
 </html>
