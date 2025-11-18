@@ -1,0 +1,295 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+    background: #000;
+}
+
+/* Фоновая картинка - БЕЗ обрезки, сохраняем пропорции */
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #000;
+}
+
+.background-image img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+/* Контейнер для кружков */
+.circles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* Стили кружков */
+.circle {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 
+        0 4px 15px rgba(0, 0, 0, 0.3),
+        inset 0 0 20px rgba(255, 255, 255, 0.1);
+    z-index: 10;
+}
+
+.circle:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.15);
+    box-shadow: 
+        0 6px 25px rgba(255, 255, 255, 0.4),
+        inset 0 0 30px rgba(255, 255, 255, 0.2);
+    border-color: rgba(255, 255, 255, 0.9);
+}
+
+/* Позиционирование кружков ВНУТРИ изображения */
+/* Левая сторона (1-12) */
+.circle-1 { top: 15%; left: 25%; }
+.circle-2 { top: 20%; left: 30%; }
+.circle-3 { top: 25%; left: 25%; }
+.circle-4 { top: 30%; left: 30%; }
+.circle-5 { top: 35%; left: 25%; }
+.circle-6 { top: 40%; left: 30%; }
+.circle-7 { top: 45%; left: 25%; }
+.circle-8 { top: 50%; left: 30%; }
+.circle-9 { top: 55%; left: 25%; }
+.circle-10 { top: 60%; left: 30%; }
+.circle-11 { top: 65%; left: 25%; }
+.circle-12 { top: 70%; left: 30%; }
+
+/* Правая сторона (13-24) */
+.circle-13 { top: 15%; right: 25%; }
+.circle-14 { top: 20%; right: 30%; }
+.circle-15 { top: 25%; right: 25%; }
+.circle-16 { top: 30%; right: 30%; }
+.circle-17 { top: 35%; right: 25%; }
+.circle-18 { top: 40%; right: 30%; }
+.circle-19 { top: 45%; right: 25%; }
+.circle-20 { top: 50%; right: 30%; }
+.circle-21 { top: 55%; right: 25%; }
+.circle-22 { top: 60%; right: 30%; }
+.circle-23 { top: 65%; right: 25%; }
+.circle-24 { top: 70%; right: 30%; }
+
+/* Простая кнопка добавления */
+.simple-add-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    border: 2px solid rgba(255, 255, 255, 0.6);
+    color: #333;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+}
+
+.simple-add-btn:hover {
+    background: white;
+    transform: scale(1.1);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
+}
+
+/* Простое модальное окно */
+.simple-modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1001;
+}
+
+.simple-modal-content {
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 400px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.simple-modal-content h3 {
+    margin: 0 0 20px 0;
+    color: #333;
+    text-align: center;
+}
+
+.simple-modal-content input,
+.simple-modal-content textarea,
+.simple-modal-content select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.simple-modal-content input:focus,
+.simple-modal-content textarea:focus,
+.simple-modal-content select:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+.simple-modal-content textarea {
+    resize: vertical;
+    min-height: 80px;
+    font-family: Arial, sans-serif;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.form-buttons button {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-buttons button[type="button"] {
+    background: #6c757d;
+    color: white;
+}
+
+.form-buttons button[type="submit"] {
+    background: #007bff;
+    color: white;
+}
+
+.form-buttons button:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+}
+
+/* Адаптив для телефонов */
+@media (max-width: 768px) {
+    .circle {
+        width: 40px;
+        height: 40px;
+        font-size: 14px;
+    }
+    
+    /* Более компактное расположение на телефонах */
+    .circle-1 { top: 15%; left: 20%; }
+    .circle-2 { top: 20%; left: 25%; }
+    .circle-3 { top: 25%; left: 20%; }
+    .circle-4 { top: 30%; left: 25%; }
+    .circle-5 { top: 35%; left: 20%; }
+    .circle-6 { top: 40%; left: 25%; }
+    .circle-7 { top: 45%; left: 20%; }
+    .circle-8 { top: 50%; left: 25%; }
+    .circle-9 { top: 55%; left: 20%; }
+    .circle-10 { top: 60%; left: 25%; }
+    .circle-11 { top: 65%; left: 20%; }
+    .circle-12 { top: 70%; left: 25%; }
+    
+    .circle-13 { top: 15%; right: 20%; }
+    .circle-14 { top: 20%; right: 25%; }
+    .circle-15 { top: 25%; right: 20%; }
+    .circle-16 { top: 30%; right: 25%; }
+    .circle-17 { top: 35%; right: 20%; }
+    .circle-18 { top: 40%; right: 25%; }
+    .circle-19 { top: 45%; right: 20%; }
+    .circle-20 { top: 50%; right: 25%; }
+    .circle-21 { top: 55%; right: 20%; }
+    .circle-22 { top: 60%; right: 25%; }
+    .circle-23 { top: 65%; right: 20%; }
+    .circle-24 { top: 70%; right: 25%; }
+    
+    .simple-add-btn {
+        width: 50px;
+        height: 50px;
+        font-size: 20px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Для очень широких экранов */
+@media (min-width: 2000px) {
+    .circle {
+        width: 45px;
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    /* Сдвигаем кружки ближе к центру на широких экранах */
+    .circle-1 { left: 30%; }
+    .circle-2 { left: 35%; }
+    .circle-3 { left: 30%; }
+    .circle-4 { left: 35%; }
+    .circle-5 { left: 30%; }
+    .circle-6 { left: 35%; }
+    .circle-7 { left: 30%; }
+    .circle-8 { left: 35%; }
+    .circle-9 { left: 30%; }
+    .circle-10 { left: 35%; }
+    .circle-11 { left: 30%; }
+    .circle-12 { left: 35%; }
+    
+    .circle-13 { right: 30%; }
+    .circle-14 { right: 35%; }
+    .circle-15 { right: 30%; }
+    .circle-16 { right: 35%; }
+    .circle-17 { right: 30%; }
+    .circle-18 { right: 35%; }
+    .circle-19 { right: 30%; }
+    .circle-20 { right: 35%; }
+    .circle-21 { right: 30%; }
+    .circle-22 { right: 35%; }
+    .circle-23 { right: 30%; }
+    .circle-24 { right: 35%; }
+}
