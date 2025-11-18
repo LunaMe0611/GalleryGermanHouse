@@ -1,9 +1,9 @@
-// Функции для работы с комментариями через GitHub Issues
+// Functions for working with comments via GitHub Issues
 
-// Добавить комментарий
+// Add comment
 async function addComment(categoryNumber, author, text) {
     try {
-        const issueNumber = categoryNumber; // Issue #1 для категории 1
+        const issueNumber = categoryNumber; // Issue #1 for category 1
         
         const response = await fetch(
             `https://api.github.com/repos/${GITHUB_CONFIG.REPO_OWNER}/${GITHUB_CONFIG.REPO_NAME}/issues/${issueNumber}/comments`,
@@ -15,7 +15,7 @@ async function addComment(categoryNumber, author, text) {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    body: `**${author}**: ${text}\n\n*Добавлено: ${new Date().toLocaleString('ru-RU')}*`
+                    body: `**${author}**: ${text}\n\n*Added: ${new Date().toLocaleString()}*`
                 })
             }
         );
@@ -26,12 +26,12 @@ async function addComment(categoryNumber, author, text) {
         
         return await response.json();
     } catch (error) {
-        console.error('Ошибка добавления комментария:', error);
+        console.error('Error adding comment:', error);
         throw error;
     }
 }
 
-// Получить комментарии категории
+// Get category comments
 async function getComments(categoryNumber) {
     try {
         const issueNumber = categoryNumber;
@@ -52,7 +52,7 @@ async function getComments(categoryNumber) {
         
         const comments = await response.json();
         
-        // Преобразуем GitHub комментарии в наш формат
+        // Convert GitHub comments to our format
         return comments.map(comment => ({
             id: comment.id,
             author: extractAuthor(comment.body),
@@ -61,22 +61,22 @@ async function getComments(categoryNumber) {
             githubUrl: comment.html_url
         }));
     } catch (error) {
-        console.error('Ошибка загрузки комментариев:', error);
+        console.error('Error loading comments:', error);
         return [];
     }
 }
 
-// Вспомогательные функции для парсинга
+// Helper functions for parsing
 function extractAuthor(body) {
     const match = body.match(/\*\*(.*?)\*\*:/);
-    return match ? match[1] : 'Аноним';
+    return match ? match[1] : 'Anonymous';
 }
 
 function extractText(body) {
     if (!body) return '';
     const parts = body.split('**:');
     if (parts.length > 1) {
-        return parts[1].split('*Добавлено:')[0].trim();
+        return parts[1].split('*Added:')[0].trim();
     }
     return body;
 }
