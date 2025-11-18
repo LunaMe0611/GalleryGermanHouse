@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Галерея</title>
+    <title>Photo Gallery</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Фоновая картинка с девушкой -->
+    <!-- Background image -->
     <div class="background-image">
-        <img src="background.png" alt="Фон">
+        <img src="background.jpg" alt="Background">
     </div>
 
-    <!-- 24 пронумерованных кружка -->
+    <!-- 24 numbered circles -->
     <div class="circles-container">
-        <!-- Левая сторона (1-12) -->
+        <!-- Left side (1-12) -->
         <div class="circle circle-1" onclick="selectCategory(1)">1</div>
         <div class="circle circle-2" onclick="selectCategory(2)">2</div>
         <div class="circle circle-3" onclick="selectCategory(3)">3</div>
@@ -28,7 +28,7 @@
         <div class="circle circle-11" onclick="selectCategory(11)">11</div>
         <div class="circle circle-12" onclick="selectCategory(12)">12</div>
         
-        <!-- Правая сторона (13-24) -->
+        <!-- Right side (13-24) -->
         <div class="circle circle-13" onclick="selectCategory(13)">13</div>
         <div class="circle circle-14" onclick="selectCategory(14)">14</div>
         <div class="circle circle-15" onclick="selectCategory(15)">15</div>
@@ -43,24 +43,23 @@
         <div class="circle circle-24" onclick="selectCategory(24)">24</div>
     </div>
 
-    <!-- Кнопка добавления фото -->
+    <!-- Add photo button -->
     <button class="simple-add-btn" onclick="openAddForm()">+</button>
 
-    <!-- Модальное окно добавления фото -->
+    <!-- Add photo modal -->
     <div id="addForm" class="simple-modal" style="display: none;">
         <div class="simple-modal-content">
-            <h3>Добавить фото</h3>
+            <h3>Add Photo</h3>
             <form onsubmit="addPhoto(event)">
-                <input type="text" id="simpleTitle" placeholder="Название фото" required>
-                <textarea id="simpleDesc" placeholder="Описание"></textarea>
+                <input type="text" id="simpleTitle" placeholder="Photo title" required>
+                <textarea id="simpleDesc" placeholder="Description"></textarea>
                 <select id="simpleCategory" required>
-                    <option value="">Выберите категорию</option>
-                    <!-- Категории будут добавляться через JS -->
+                    <option value="">Select category</option>
                 </select>
                 <input type="file" id="simpleFile" accept="image/*" required>
                 <div class="form-buttons">
-                    <button type="button" onclick="closeAddForm()">Отмена</button>
-                    <button type="submit">Добавить</button>
+                    <button type="button" onclick="closeAddForm()">Cancel</button>
+                    <button type="submit">Add Photo</button>
                 </div>
             </form>
         </div>
