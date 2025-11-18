@@ -1,12 +1,12 @@
-// Данные для 24 категорий (просто номера)
+// Data for 24 categories (just numbers)
 const categories = Array.from({length: 24}, (_, i) => (i + 1).toString());
 
-// Функция выбора категории
+// Category selection function
 function selectCategory(categoryNumber) {
     window.location.href = `category.html?category=${categoryNumber}`;
 }
 
-// Функции для простой формы добавления
+// Functions for simple add form
 function openAddForm() {
     document.getElementById('addForm').style.display = 'flex';
     loadCategoriesToSelect();
@@ -17,20 +17,20 @@ function closeAddForm() {
     resetSimpleForm();
 }
 
-// Загружаем категории в select
+// Load categories to select
 function loadCategoriesToSelect() {
     const select = document.getElementById('simpleCategory');
-    select.innerHTML = '<option value="">Выберите категорию</option>';
+    select.innerHTML = '<option value="">Select category</option>';
     
     categories.forEach(category => {
         const option = document.createElement('option');
         option.value = category;
-        option.textContent = `Категория ${category}`;
+        option.textContent = `Category ${category}`;
         select.appendChild(option);
     });
 }
 
-// Сброс формы
+// Reset form
 function resetSimpleForm() {
     document.getElementById('simpleTitle').value = '';
     document.getElementById('simpleDesc').value = '';
@@ -38,7 +38,7 @@ function resetSimpleForm() {
     document.getElementById('simpleFile').value = '';
 }
 
-// Добавление фото
+// Add photo
 function addPhoto(event) {
     event.preventDefault();
     
@@ -49,25 +49,25 @@ function addPhoto(event) {
     const file = fileInput.files[0];
     
     if (!file) {
-        alert('Пожалуйста, выберите фото');
+        alert('Please select a photo');
         return;
     }
     
-    // Преобразуем фото в Data URL для реального сохранения
+    // Convert photo to Data URL for real saving
     const reader = new FileReader();
     reader.onload = function(e) {
         const imageData = e.target.result;
         
-        // Сохраняем фото
+        // Save photo
         savePhotoToStorage(title, description, category, imageData);
         
-        alert(`Фото "${title}" успешно добавлено в категорию ${category}!`);
+        alert(`Photo "${title}" successfully added to category ${category}!`);
         closeAddForm();
     };
     reader.readAsDataURL(file);
 }
 
-// Сохраняем фото в localStorage
+// Save photo to localStorage
 function savePhotoToStorage(title, description, category, imageData) {
     const newPhoto = {
         id: Date.now(),
@@ -82,10 +82,10 @@ function savePhotoToStorage(title, description, category, imageData) {
     userPhotos.push(newPhoto);
     localStorage.setItem('userPhotos', JSON.stringify(userPhotos));
     
-    console.log('Фото сохранено:', newPhoto);
+    console.log('Photo saved:', newPhoto);
 }
 
-// Закрытие формы при клике вне её
+// Close form when clicking outside
 document.getElementById('addForm').addEventListener('click', function(e) {
     if (e.target === this) {
         closeAddForm();
