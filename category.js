@@ -1,3 +1,4 @@
+let currentPhotoId = null;
 let currentCategoryNumber = null;
 
 // Load category
@@ -6,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoryNumber = urlParams.get('category');
     
     if (categoryNumber) {
+        currentCategoryNumber = categoryNumber;
         loadCategory(categoryNumber);
     } else {
         document.getElementById('categoryTitle').textContent = 'Category not found';
@@ -13,81 +15,111 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function loadCategory(categoryNumber) {
-    // Set title with comments button
-    const categoryTitle = document.getElementById('categoryTitle');
-    categoryTitle.innerHTML = `
-        Category ${categoryNumber}
-        <button class="comments-btn" onclick="openCommentsModal(${categoryNumber})">
-            💬 Comments
-        </button>
-    `;
+    // Set title
+    document.getElementById('categoryTitle').textContent = `Category ${categoryNumber}`;
     
     const photosGrid = document.getElementById('photosGrid');
     photosGrid.innerHTML = '<div class="loading">Loading photos...</div>';
     
+    // Load default photos first, then user photos
+    loadDefaultPhotos(categoryNumber, photosGrid);
     loadUserPhotos(categoryNumber, photosGrid);
+}
+
+function loadDefaultPhotos(categoryNumber, photosGrid) {
+    // Simple default photos structure
+    const defaultPhotos = [
+        { 
+            id: `cat${categoryNumber}_photo1`,
+            title: `Beautiful Landscape ${categoryNumber}`, 
+            description: 'Stunning natural scenery',
+            image: `images/categories/${categoryNumber}/photo1.jpg`
+        },
+        { 
+            id: `cat${categoryNumber}_photo2`,
+            title: `Artistic Shot ${categoryNumber}`, 
+            description: 'Creative photography',
+            image: `images/categories/${categoryNumber}/photo2.jpg`
+        },
+        { 
+            id: `cat${categoryNumber}_photo3`,
+            title: `Nature Closeup ${categoryNumber}`, 
+            description: 'Detailed natural elements',
+            image: `images/categories/${categoryNumber}/photo3.jpg`
+        }
+    ];
+    
+    // Display default photos
+    photosGrid.innerHTML = '';
+    defaultPhotos.forEach(photo => {
+        const photoCard = createPhotoCard(photo, categoryNumber);
+        photosGrid.appendChild(photoCard);
+    });
 }
 
 function loadUserPhotos(categoryNumber, photosGrid) {
     const userPhotos = JSON.parse(localStorage.getItem('userPhotos') || '[]');
     const categoryUserPhotos = userPhotos.filter(photo => photo.category === categoryNumber);
     
-    photosGrid.innerHTML = '';
-    
-    if (categoryUserPhotos.length === 0) {
-        photosGrid.innerHTML = '<div class="no-photos">No photos in this category yet</div>';
-        return;
-    }
-    
-    // Display photos
+    // Display user photos
     categoryUserPhotos.forEach(photo => {
         const userPhoto = {
+            id: photo.id,
             title: photo.title,
             description: photo.description,
             image: photo.imageData,
             uploadedAt: photo.uploadedAt
         };
         
-        const photoCard = createPhotoCard(userPhoto);
+        const photoCard = createPhotoCard(userPhoto, categoryNumber);
         photosGrid.appendChild(photoCard);
     });
+    
+    // If no photos at all, show message
+    if (photosGrid.children.length === 0) {
+        photosGrid.innerHTML = '<div class="no-photos">No photos in this category yet</div>';
+    }
 }
 
-function createPhotoCard(photo) {
+function createPhotoCard(photo, categoryNumber) {
     const photoCard = document.createElement('div');
     photoCard.className = 'photo-card';
     photoCard.innerHTML = `
-        <img src="${photo.image}" alt="${photo.title}" class="photo-image">
+        <img src="${photo.image}" alt="${photo.title}" class="photo-image" 
+             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPlBob3RvIENvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg=='">
         <div class="photo-info">
             <h3 class="photo-title">${photo.title}</h3>
             <p class="photo-description">${photo.description}</p>
             ${photo.uploadedAt ? `<small class="upload-date">Added: ${new Date(photo.uploadedAt).toLocaleDateString()}</small>` : ''}
+            <button class="photo-comments-btn" onclick="openCommentsModal('${photo.id}', '${photo.title.replace(/'/g, "\\'")}')">
+                💬 Comments
+            </button>
         </div>
     `;
     return photoCard;
 }
 
-// Comment functions
-async function openCommentsModal(categoryNumber) {
-    currentCategoryNumber = categoryNumber;
+// Comment functions - NOW PER PHOTO
+async function openCommentsModal(photoId, photoTitle) {
+    currentPhotoId = photoId;
     
-    document.getElementById('commentsCategoryTitle').textContent = `Comments: Category ${categoryNumber}`;
+    document.getElementById('commentsPhotoTitle').textContent = `Comments: ${photoTitle}`;
     document.getElementById('commentsModal').style.display = 'flex';
     
-    await loadComments(categoryNumber);
+    await loadComments(photoId);
 }
 
 function closeCommentsModal() {
     document.getElementById('commentsModal').style.display = 'none';
-    currentCategoryNumber = null;
+    currentPhotoId = null;
 }
 
-async function loadComments(categoryNumber) {
+async function loadComments(photoId) {
     const commentsList = document.getElementById('commentsList');
     commentsList.innerHTML = '<div class="loading">Loading comments...</div>';
     
     try {
-        const comments = await getComments(categoryNumber);
+        const comments = await getComments(photoId);
         
         if (comments.length === 0) {
             commentsList.innerHTML = '<div class="no-comments">No comments yet. Be the first!</div>';
@@ -109,6 +141,7 @@ async function loadComments(categoryNumber) {
             commentsList.appendChild(commentElement);
         });
     } catch (error) {
+        console.error('Error loading comments:', error);
         commentsList.innerHTML = '<div class="error">Error loading comments</div>';
     }
 }
@@ -125,20 +158,20 @@ async function addNewComment() {
         return;
     }
     
-    if (!currentCategoryNumber) {
-        alert('Error: no category selected');
+    if (!currentPhotoId) {
+        alert('Error: no photo selected');
         return;
     }
     
     try {
-        await addComment(currentCategoryNumber, author, text);
+        await addComment(currentPhotoId, author, text);
         
         // Clear form
         authorInput.value = '';
         textInput.value = '';
         
         // Refresh comments list
-        await loadComments(currentCategoryNumber);
+        await loadComments(currentPhotoId);
         
     } catch (error) {
         alert('Error adding comment. Please try again.');
@@ -160,5 +193,5 @@ document.addEventListener('keydown', function(e) {
 });
 
 function goBack() {
-    window.history.back();
+    window.location.href = 'index.html';
 }
