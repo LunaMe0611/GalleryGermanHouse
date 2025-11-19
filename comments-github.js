@@ -1,18 +1,16 @@
-// Global variable to track current photo and category
-let currentPhotoId = null;
-let currentCategoryNumber = null;
-
 // Functions for working with comments via GitHub Issues
-// Comments are now per photo, not per category
 
 // Add comment to specific photo
 async function addComment(photoId, author, text) {
     try {
-        if (!currentCategoryNumber) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryNumber = urlParams.get('category');
+        
+        if (!categoryNumber) {
             throw new Error('No category selected');
         }
         
-        const issueNumber = currentCategoryNumber;
+        const issueNumber = categoryNumber;
         
         const response = await fetch(
             `https://api.github.com/repos/${GITHUB_CONFIG.REPO_OWNER}/${GITHUB_CONFIG.REPO_NAME}/issues/${issueNumber}/comments`,
@@ -30,8 +28,7 @@ async function addComment(photoId, author, text) {
         );
         
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(`GitHub API error: ${response.status} - ${errorData.message || 'Unknown error'}`);
+            throw new Error(`GitHub API error: ${response.status}`);
         }
         
         return await response.json();
@@ -44,11 +41,14 @@ async function addComment(photoId, author, text) {
 // Get comments for specific photo
 async function getComments(photoId) {
     try {
-        if (!currentCategoryNumber) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const categoryNumber = urlParams.get('category');
+        
+        if (!categoryNumber) {
             throw new Error('No category selected');
         }
         
-        const issueNumber = currentCategoryNumber;
+        const issueNumber = categoryNumber;
         
         const response = await fetch(
             `https://api.github.com/repos/${GITHUB_CONFIG.REPO_OWNER}/${GITHUB_CONFIG.REPO_NAME}/issues/${issueNumber}/comments`,
@@ -61,8 +61,7 @@ async function getComments(photoId) {
         );
         
         if (!response.ok) {
-            const errorData = await response.json().catch(() => ({}));
-            throw new Error(`GitHub API error: ${response.status} - ${errorData.message || 'Unknown error'}`);
+            throw new Error(`GitHub API error: ${response.status}`);
         }
         
         const allComments = await response.json();
@@ -72,8 +71,6 @@ async function getComments(photoId) {
             if (!comment.body) return false;
             return comment.body.includes(`**PHOTO_ID:** ${photoId}`);
         });
-        
-        console.log(`Found ${photoComments.length} comments for photo ${photoId}`);
         
         // Convert GitHub comments to our format
         return photoComments.map(comment => ({
@@ -101,55 +98,5 @@ function extractText(body) {
     if (!body) return 'No comment text';
     
     const match = body.match(/\*\*COMMENT:\*\* (.*?)(?:\n\n|\n\*Added:|$)/s);
-    if (match) {
-        return match[1].trim();
-    }
-    
-    // Fallback: try to extract any text after COMMENT:
-    const fallbackMatch = body.match(/\*\*COMMENT:\*\*([\s\S]*?)(?:\n\n|$)/);
-    return fallbackMatch ? fallbackMatch[1].trim() : 'No comment text';
+    return match ? match[1].trim() : 'No comment text';
 }
-
-// Function to set current category (called from category.js)
-function setCurrentCategory(categoryNumber) {
-    currentCategoryNumber = categoryNumber;
-}
-
-// Function to set current photo (called from category.js)
-function setCurrentPhoto(photoId) {
-    currentPhotoId = photoId;
-}
-
-// Debug function to check GitHub connection
-async function testGitHubConnection() {
-    try {
-        const response = await fetch(
-            `https://api.github.com/repos/${GITHUB_CONFIG.REPO_OWNER}/${GITHUB_CONFIG.REPO_NAME}/issues/1`,
-            {
-                headers: {
-                    'Authorization': `token ${GITHUB_CONFIG.TOKEN}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
-            }
-        );
-        
-        if (response.ok) {
-            console.log('GitHub connection: OK');
-            return true;
-        } else {
-            console.log('GitHub connection: FAILED', response.status);
-            return false;
-        }
-    } catch (error) {
-        console.log('GitHub connection: ERROR', error);
-        return false;
-    }
-}
-
-// Initialize connection test on load
-document.addEventListener('DOMContentLoaded', function() {
-    // Test connection after a short delay
-    setTimeout(() => {
-        testGitHubConnection();
-    }, 1000);
-});
