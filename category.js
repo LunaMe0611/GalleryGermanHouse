@@ -21,47 +21,22 @@ function loadCategory(categoryNumber) {
     const photosGrid = document.getElementById('photosGrid');
     photosGrid.innerHTML = '<div class="loading">Loading photos...</div>';
     
-    // Load default photos first, then user photos
-    loadDefaultPhotos(categoryNumber, photosGrid);
+    // Load user photos
     loadUserPhotos(categoryNumber, photosGrid);
-}
-
-function loadDefaultPhotos(categoryNumber, photosGrid) {
-    // Simple default photos structure
-    const defaultPhotos = [
-        { 
-            id: `cat${categoryNumber}_photo1`,
-            title: `Beautiful Landscape ${categoryNumber}`, 
-            description: 'Stunning natural scenery',
-            image: `images/categories/${categoryNumber}/photo1.jpg`
-        },
-        { 
-            id: `cat${categoryNumber}_photo2`,
-            title: `Artistic Shot ${categoryNumber}`, 
-            description: 'Creative photography',
-            image: `images/categories/${categoryNumber}/photo2.jpg`
-        },
-        { 
-            id: `cat${categoryNumber}_photo3`,
-            title: `Nature Closeup ${categoryNumber}`, 
-            description: 'Detailed natural elements',
-            image: `images/categories/${categoryNumber}/photo3.jpg`
-        }
-    ];
-    
-    // Display default photos
-    photosGrid.innerHTML = '';
-    defaultPhotos.forEach(photo => {
-        const photoCard = createPhotoCard(photo, categoryNumber);
-        photosGrid.appendChild(photoCard);
-    });
 }
 
 function loadUserPhotos(categoryNumber, photosGrid) {
     const userPhotos = JSON.parse(localStorage.getItem('userPhotos') || '[]');
     const categoryUserPhotos = userPhotos.filter(photo => photo.category === categoryNumber);
     
-    // Display user photos
+    photosGrid.innerHTML = '';
+    
+    if (categoryUserPhotos.length === 0) {
+        photosGrid.innerHTML = '<div class="no-photos">No photos in this category yet</div>';
+        return;
+    }
+    
+    // Display photos
     categoryUserPhotos.forEach(photo => {
         const userPhoto = {
             id: photo.id,
@@ -74,19 +49,13 @@ function loadUserPhotos(categoryNumber, photosGrid) {
         const photoCard = createPhotoCard(userPhoto, categoryNumber);
         photosGrid.appendChild(photoCard);
     });
-    
-    // If no photos at all, show message
-    if (photosGrid.children.length === 0) {
-        photosGrid.innerHTML = '<div class="no-photos">No photos in this category yet</div>';
-    }
 }
 
 function createPhotoCard(photo, categoryNumber) {
     const photoCard = document.createElement('div');
     photoCard.className = 'photo-card';
     photoCard.innerHTML = `
-        <img src="${photo.image}" alt="${photo.title}" class="photo-image" 
-             onerror="this.onerror=null; this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzMzIi8+PHRleHQgeD0iNTAlIiB5PSI1MCUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIxOCIgZmlsbD0iI2ZmZiIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZHk9Ii4zZW0iPlBob3RvIENvbWluZyBTb29uPC90ZXh0Pjwvc3ZnPg=='">
+        <img src="${photo.image}" alt="${photo.title}" class="photo-image">
         <div class="photo-info">
             <h3 class="photo-title">${photo.title}</h3>
             <p class="photo-description">${photo.description}</p>
@@ -99,7 +68,7 @@ function createPhotoCard(photo, categoryNumber) {
     return photoCard;
 }
 
-// Comment functions - NOW PER PHOTO
+// Comment functions
 async function openCommentsModal(photoId, photoTitle) {
     currentPhotoId = photoId;
     
