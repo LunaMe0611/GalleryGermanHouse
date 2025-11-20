@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
     color: white;
     min-height: 100vh;
@@ -32,6 +32,7 @@ body {
     padding: 10px 20px;
     border-radius: 25px;
     cursor: pointer;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 16px;
     margin-right: 30px;
     transition: all 0.3s ease;
@@ -44,8 +45,10 @@ body {
 }
 
 .category-title {
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 2.5em;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    font-weight: bold;
 }
 
 .photos-grid {
@@ -85,12 +88,14 @@ body {
 }
 
 .photo-title {
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 1.3em;
     margin-bottom: 10px;
     font-weight: bold;
 }
 
 .photo-description {
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     color: rgba(255, 255, 255, 0.8);
     font-size: 0.9em;
     line-height: 1.4;
@@ -100,6 +105,7 @@ body {
 .upload-date {
     display: block;
     margin-top: 8px;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.6);
     font-style: italic;
@@ -113,6 +119,7 @@ body {
     padding: 10px 15px;
     border-radius: 15px;
     cursor: pointer;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 14px;
     transition: all 0.3s ease;
     width: 100%;
@@ -129,6 +136,7 @@ body {
 .loading, .no-photos, .error {
     text-align: center;
     padding: 40px;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 18px;
     color: rgba(255, 255, 255, 0.7);
     grid-column: 1 / -1;
@@ -180,7 +188,9 @@ body {
     color: white;
     margin-bottom: 20px;
     text-align: center;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 1.5em;
+    font-weight: bold;
 }
 
 /* Comment form */
@@ -201,6 +211,7 @@ body {
     border-radius: 10px;
     background: rgba(255, 255, 255, 0.1);
     color: white;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 16px;
     box-sizing: border-box;
 }
@@ -208,6 +219,7 @@ body {
 .comment-form input::placeholder,
 .comment-form textarea::placeholder {
     color: rgba(255, 255, 255, 0.7);
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
 }
 
 .comment-form input:focus,
@@ -219,7 +231,7 @@ body {
 .comment-form textarea {
     resize: vertical;
     min-height: 80px;
-    font-family: Arial, sans-serif;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
 }
 
 .comment-form button {
@@ -229,6 +241,7 @@ body {
     border: 2px solid rgba(255, 255, 255, 0.4);
     border-radius: 10px;
     color: white;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -257,6 +270,7 @@ body {
 }
 
 .comment-author {
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-weight: bold;
     color: #007bff;
     margin-bottom: 5px;
@@ -264,12 +278,14 @@ body {
 }
 
 .comment-text {
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     color: rgba(255, 255, 255, 0.9);
     line-height: 1.4;
     margin-bottom: 8px;
 }
 
 .comment-date {
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 12px;
     color: rgba(255, 255, 255, 0.6);
     text-align: right;
@@ -278,6 +294,7 @@ body {
 .no-comments {
     text-align: center;
     color: rgba(255, 255, 255, 0.7);
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-style: italic;
     padding: 20px;
 }
@@ -285,6 +302,7 @@ body {
 .error {
     text-align: center;
     color: #ff6b6b;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     padding: 20px;
 }
 
