@@ -5,13 +5,13 @@
 }
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     height: 100vh;
     overflow: hidden;
     background: #000;
 }
 
-/* Background image - NO cropping */
+/* Фоновая картинка - БЕЗ обрезки, сохраняем пропорции */
 .background-image {
     position: fixed;
     top: 0;
@@ -33,7 +33,7 @@ body {
     object-fit: contain;
 }
 
-/* Circles container */
+/* Контейнер для кружков */
 .circles-container {
     position: absolute;
     top: 0;
@@ -42,7 +42,7 @@ body {
     height: 100%;
 }
 
-/* Circle styles */
+/* Стили кружков */
 .circle {
     position: absolute;
     width: 50px;
@@ -54,6 +54,7 @@ body {
     align-items: center;
     justify-content: center;
     color: white;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-weight: bold;
     font-size: 16px;
     cursor: pointer;
@@ -74,8 +75,8 @@ body {
     border-color: rgba(255, 255, 255, 0.9);
 }
 
-/* Circle positioning INSIDE the image */
-/* Left side (1-12) */
+/* Позиционирование кружков ВНУТРИ изображения */
+/* Левая сторона (1-12) */
 .circle-1 { top: 15%; left: 25%; }
 .circle-2 { top: 20%; left: 30%; }
 .circle-3 { top: 25%; left: 25%; }
@@ -89,7 +90,7 @@ body {
 .circle-11 { top: 65%; left: 25%; }
 .circle-12 { top: 70%; left: 30%; }
 
-/* Right side (13-24) */
+/* Правая сторона (13-24) */
 .circle-13 { top: 15%; right: 25%; }
 .circle-14 { top: 20%; right: 30%; }
 .circle-15 { top: 25%; right: 25%; }
@@ -103,7 +104,7 @@ body {
 .circle-23 { top: 65%; right: 25%; }
 .circle-24 { top: 70%; right: 30%; }
 
-/* Simple add button */
+/* Простая кнопка добавления */
 .simple-add-btn {
     position: fixed;
     bottom: 30px;
@@ -114,6 +115,7 @@ body {
     background: rgba(255, 255, 255, 0.9);
     border: 2px solid rgba(255, 255, 255, 0.6);
     color: #333;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 24px;
     font-weight: bold;
     cursor: pointer;
@@ -129,7 +131,7 @@ body {
     box-shadow: 0 6px 20px rgba(255, 255, 255, 0.4);
 }
 
-/* Simple modal */
+/* Простое модальное окно */
 .simple-modal {
     position: fixed;
     top: 0;
@@ -156,6 +158,8 @@ body {
     margin: 0 0 20px 0;
     color: #333;
     text-align: center;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
+    font-weight: bold;
 }
 
 .simple-modal-content input,
@@ -166,6 +170,7 @@ body {
     margin-bottom: 15px;
     border: 2px solid #ddd;
     border-radius: 8px;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 16px;
     box-sizing: border-box;
 }
@@ -180,7 +185,7 @@ body {
 .simple-modal-content textarea {
     resize: vertical;
     min-height: 80px;
-    font-family: Arial, sans-serif;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
 }
 
 .form-buttons {
@@ -194,6 +199,7 @@ body {
     padding: 12px;
     border: none;
     border-radius: 8px;
+    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
     font-size: 16px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -214,7 +220,7 @@ body {
     transform: translateY(-2px);
 }
 
-/* Mobile adaptation */
+/* Адаптив для телефонов */
 @media (max-width: 768px) {
     .circle {
         width: 40px;
@@ -222,7 +228,7 @@ body {
         font-size: 14px;
     }
     
-    /* More compact positioning on mobile */
+    /* Более компактное расположение на телефонах */
     .circle-1 { top: 15%; left: 20%; }
     .circle-2 { top: 20%; left: 25%; }
     .circle-3 { top: 25%; left: 20%; }
@@ -258,7 +264,7 @@ body {
     }
 }
 
-/* For very wide screens */
+/* Для очень широких экранов */
 @media (min-width: 2000px) {
     .circle {
         width: 45px;
@@ -266,7 +272,7 @@ body {
         font-size: 16px;
     }
     
-    /* Move circles closer to center on wide screens */
+    /* Сдвигаем кружки ближе к центру на широких экранах */
     .circle-1 { left: 30%; }
     .circle-2 { left: 35%; }
     .circle-3 { left: 30%; }
