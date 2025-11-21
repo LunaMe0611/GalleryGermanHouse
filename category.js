@@ -8,19 +8,37 @@ const defaultPhotos = {
             id: 'cat1_photo1',
             title: 'Mountain Sunrise', 
             description: 'Beautiful mountain landscape at sunrise',
-            image: 'images/categories/1/photo1.jpg'
+            image: 'images/categories/1/photo 1.jpg'
         },
         { 
             id: 'cat1_photo2',
             title: 'Forest Path', 
             description: 'Peaceful forest walking path',
-            image: 'images/categories/1/photo2.jpg'
+            image: 'images/categories/1/photo 2.jpg'
         },
         { 
             id: 'cat1_photo3',
             title: 'Ocean View', 
             description: 'Stunning ocean coastline',
-            image: 'images/categories/1/photo3.jpg'
+            image: 'images/categories/1/photo 3.jpg'
+        },
+        { 
+            id: 'cat1_photo2',
+            title: 'Forest Path', 
+            description: 'Peaceful forest walking path',
+            image: 'images/categories/1/photo 4.jpg'
+        },
+        { 
+            id: 'cat1_photo2',
+            title: 'Forest Path', 
+            description: 'Peaceful forest walking path',
+            image: 'images/categories/1/photo 5.jpg'
+        },
+        { 
+            id: 'cat1_photo2',
+            title: 'Forest Path', 
+            description: 'Peaceful forest walking path',
+            image: 'images/categories/1/photo 6.jpg'
         }
     ],
     '2': [
@@ -248,3 +266,4 @@ document.addEventListener('keydown', function(e) {
 function goBack() {
     window.location.href = 'index.html';
 }
+
