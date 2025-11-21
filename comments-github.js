@@ -1,102 +1,101 @@
-// Functions for working with comments via GitHub Issues
+// Gist-based comments system
+const GIST_FILENAME = 'comments.json';
 
-// Add comment to specific photo
+// Add comment to Gist
 async function addComment(photoId, author, text) {
     try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryNumber = urlParams.get('category');
+        // 1. Get current Gist
+        const gist = await getGist();
+        let comments = gist.files[GIST_FILENAME].content ? 
+            JSON.parse(gist.files[GIST_FILENAME].content) : {};
         
-        if (!categoryNumber) {
-            throw new Error('No category selected');
+        // 2. Add new comment
+        const newComment = {
+            id: Date.now(),
+            author: author,
+            text: text,
+            date: new Date().toISOString()
+        };
+        
+        if (!comments[photoId]) {
+            comments[photoId] = [];
         }
+        comments[photoId].push(newComment);
         
-        const issueNumber = categoryNumber;
+        // 3. Update Gist
+        await updateGist(comments);
         
-        const response = await fetch(
-            `https://api.github.com/repos/${GITHUB_CONFIG.REPO_OWNER}/${GITHUB_CONFIG.REPO_NAME}/issues/${issueNumber}/comments`,
-            {
-                method: 'POST',
-                headers: {
-                    'Authorization': `token ${GITHUB_CONFIG.TOKEN}`,
-                    'Accept': 'application/vnd.github.v3+json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    body: `**PHOTO_ID:** ${photoId}\n**USER:** ${author}\n**COMMENT:** ${text}\n\n*Added: ${new Date().toLocaleString('en-US')}*`
-                })
-            }
-        );
-        
-        if (!response.ok) {
-            throw new Error(`GitHub API error: ${response.status}`);
-        }
-        
-        return await response.json();
+        return newComment;
     } catch (error) {
         console.error('Error adding comment:', error);
         throw error;
     }
 }
 
-// Get comments for specific photo
+// Get comments from Gist
 async function getComments(photoId) {
     try {
-        const urlParams = new URLSearchParams(window.location.search);
-        const categoryNumber = urlParams.get('category');
+        const gist = await getGist();
+        const comments = gist.files[GIST_FILENAME].content ? 
+            JSON.parse(gist.files[GIST_FILENAME].content) : {};
         
-        if (!categoryNumber) {
-            throw new Error('No category selected');
-        }
-        
-        const issueNumber = categoryNumber;
-        
-        const response = await fetch(
-            `https://api.github.com/repos/${GITHUB_CONFIG.REPO_OWNER}/${GITHUB_CONFIG.REPO_NAME}/issues/${issueNumber}/comments`,
-            {
-                headers: {
-                    'Authorization': `token ${GITHUB_CONFIG.TOKEN}`,
-                    'Accept': 'application/vnd.github.v3+json'
-                }
-            }
-        );
-        
-        if (!response.ok) {
-            throw new Error(`GitHub API error: ${response.status}`);
-        }
-        
-        const allComments = await response.json();
-        
-        // Filter comments for this specific photo
-        const photoComments = allComments.filter(comment => {
-            if (!comment.body) return false;
-            return comment.body.includes(`**PHOTO_ID:** ${photoId}`);
-        });
-        
-        // Convert GitHub comments to our format
-        return photoComments.map(comment => ({
-            id: comment.id,
-            author: extractAuthor(comment.body),
-            text: extractText(comment.body),
-            date: comment.created_at,
-            githubUrl: comment.html_url
-        }));
+        return comments[photoId] || [];
     } catch (error) {
         console.error('Error loading comments:', error);
         return [];
     }
 }
 
-// Helper functions for parsing
-function extractAuthor(body) {
-    if (!body) return 'Anonymous';
+// Get Gist data
+async function getGist() {
+    const response = await fetch(`https://api.github.com/gists/${GITHUB_CONFIG.GIST_ID}`, {
+        headers: {
+            'Authorization': `token ${GITHUB_CONFIG.TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json'
+        }
+    });
     
-    const match = body.match(/\*\*USER:\*\* (.*?)(?:\n|$)/);
-    return match ? match[1].trim() : 'Anonymous';
+    if (!response.ok) {
+        throw new Error(`Gist error: ${response.status}`);
+    }
+    
+    return await response.json();
 }
 
-function extractText(body) {
-    if (!body) return 'No comment text';
+// Update Gist with new comments
+async function updateGist(comments) {
+    const response = await fetch(`https://api.github.com/gists/${GITHUB_CONFIG.GIST_ID}`, {
+        method: 'PATCH',
+        headers: {
+            'Authorization': `token ${GITHUB_CONFIG.TOKEN}`,
+            'Accept': 'application/vnd.github.v3+json',
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            files: {
+                [GIST_FILENAME]: {
+                    content: JSON.stringify(comments, null, 2)
+                }
+            }
+        })
+    });
     
-    const match = body.match(/\*\*COMMENT:\*\* (.*?)(?:\n\n|\n\*Added:|$)/s);
-    return match ? match[1].trim() : 'No comment text';
+    if (!response.ok) {
+        throw new Error(`Gist update error: ${response.status}`);
+    }
+    
+    return await response.json();
+}
+
+// Test function
+async function testGistConnection() {
+    try {
+        const gist = await getGist();
+        console.log('✅ Gist connection OK');
+        console.log('Gist URL:', gist.html_url);
+        return true;
+    } catch (error) {
+        console.log('❌ Gist connection failed:', error);
+        return false;
+    }
 }
