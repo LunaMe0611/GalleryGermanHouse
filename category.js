@@ -23,19 +23,19 @@ const defaultPhotos = {
             image: 'images/categories/1/photo 3.jpg'
         },
         { 
-            id: 'cat1_photo2',
+            id: 'cat1_photo4',
             title: 'Forest Path', 
             description: 'Peaceful forest walking path',
             image: 'images/categories/1/photo 4.jpg'
         },
         { 
-            id: 'cat1_photo2',
+            id: 'cat1_photo5',
             title: 'Forest Path', 
             description: 'Peaceful forest walking path',
             image: 'images/categories/1/photo 5.jpg'
         },
         { 
-            id: 'cat1_photo2',
+            id: 'cat1_photo6',
             title: 'Forest Path', 
             description: 'Peaceful forest walking path',
             image: 'images/categories/1/photo 6.jpg'
@@ -85,9 +85,18 @@ const defaultPhotos = {
 };
 
 // Load category
-document.addEventListener('DOMContentLoaded', function() {
+document.addEventListener('DOMContentLoaded', async function() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryNumber = urlParams.get('category');
+    
+    // Test Gist connection
+    console.log('Testing Gist connection...');
+    const connected = await testGistConnection();
+    if (!connected) {
+        console.error('❌ Gist connection failed - check token and GIST_ID in config.js');
+    } else {
+        console.log('✅ Gist connection successful');
+    }
     
     if (categoryNumber) {
         currentCategoryNumber = categoryNumber;
@@ -170,12 +179,16 @@ function createPhotoCard(photo, categoryNumber) {
     return photoCard;
 }
 
-// Rest of the code remains the same...
+// Comments functionality
 async function openCommentsModal(photoId, photoTitle) {
     currentPhotoId = photoId;
     
     document.getElementById('commentsPhotoTitle').textContent = `Comments: ${photoTitle}`;
     document.getElementById('commentsModal').style.display = 'flex';
+    
+    // Clear form
+    document.getElementById('commentAuthor').value = '';
+    document.getElementById('commentText').value = '';
     
     await loadComments(photoId);
 }
@@ -213,7 +226,7 @@ async function loadComments(photoId) {
         });
     } catch (error) {
         console.error('Error loading comments:', error);
-        commentsList.innerHTML = '<div class="error">Error loading comments</div>';
+        commentsList.innerHTML = '<div class="error">Error loading comments. Check console for details.</div>';
     }
 }
 
@@ -235,6 +248,10 @@ async function addNewComment() {
     }
     
     try {
+        // Show loading
+        const commentsList = document.getElementById('commentsList');
+        commentsList.innerHTML = '<div class="loading">Adding comment...</div>';
+        
         await addComment(currentPhotoId, author, text);
         
         // Clear form
@@ -245,7 +262,8 @@ async function addNewComment() {
         await loadComments(currentPhotoId);
         
     } catch (error) {
-        alert('Error adding comment. Please try again.');
+        console.error('Error adding comment:', error);
+        alert('Error adding comment. Please check console for details and ensure GitHub token is valid.');
     }
 }
 
@@ -267,4 +285,16 @@ function goBack() {
     window.location.href = 'index.html';
 }
 
-
+// Gist connection test (from comments-github.js)
+async function testGistConnection() {
+    try {
+        const gist = await getGist();
+        console.log('✅ Gist connection OK');
+        console.log('Gist URL:', gist.html_url);
+        console.log('Files:', Object.keys(gist.files));
+        return true;
+    } catch (error) {
+        console.log('❌ Gist connection failed:', error);
+        return false;
+    }
+}
