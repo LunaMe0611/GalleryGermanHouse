@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Check GitHub Token</title>
+</head>
+<body>
+    <h2>GitHub Token Test</h2>
+    <div id="result"></div>
+
+    <script>
+        // 🔧 ЗАМЕНИ ЭТОТ ТОКЕН НА СВОЙ
+        const TEST_TOKEN = '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';
+        const REPO_OWNER = 'LunaMe0611';
+        const REPO_NAME = 'GalleryGermanHouse';
+
+        async function testToken() {
+            const resultDiv = document.getElementById('result');
+            
+            try {
+                resultDiv.innerHTML = 'Testing token...';
+                
+                const response = await fetch(
+                    `https://api.github.com/repos/${REPO_OWNER}/${REPO_NAME}/issues/1`,
+                    {
+                        headers: {
+                            'Authorization': `token ${TEST_TOKEN}`,
+                            'Accept': 'application/vnd.github.v3+json'
+                        }
+                    }
+                );
+                
+                console.log('Response status:', response.status);
+                
+                if (response.ok) {
+                    const issue = await response.json();
+                    resultDiv.innerHTML = `
+                        <h3 style="color: green;">✅ TOKEN WORKS!</h3>
+                        <p>Issue #1: "${issue.title}"</p>
+                        <p>Repository: ${REPO_OWNER}/${REPO_NAME}</p>
+                    `;
+                } else {
+                    const errorText = await response.text();
+                    resultDiv.innerHTML = `
+                        <h3 style="color: red;">❌ TOKEN FAILED</h3>
+                        <p>Status: ${response.status} ${response.statusText}</p>
+                        <p>Error: ${errorText}</p>
+                    `;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `
+                    <h3 style="color: red;">❌ NETWORK ERROR</h3>
+                    <p>${error.message}</p>
+                `;
+            }
+        }
+
+        // Запускаем тест
+        testToken();
+    </script>
+</body>
+</html>
