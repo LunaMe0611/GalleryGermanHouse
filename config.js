@@ -1,6 +1,5 @@
 // GitHub Configuration
 const GITHUB_CONFIG = {
-    TOKEN: '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', // ВСТАВЬ свой токен с шага 1
-    REPO_OWNER: 'LunaMe0611', // ВСТАВЬ свой username GitHub
-    REPO_NAME: 'GalleryGermanHouse' // ВСТАВЬ название своего репозитория
+    TOKEN: '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', // ВСТАВЬ свой токен с шага 1
+    GIST_ID: 'ac6449c25e838f398c7de89169367dc9'
 };
