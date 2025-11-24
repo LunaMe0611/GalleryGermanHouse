@@ -85,18 +85,9 @@ const defaultPhotos = {
 };
 
 // Load category
-document.addEventListener('DOMContentLoaded', async function() {
+document.addEventListener('DOMContentLoaded', function() {
     const urlParams = new URLSearchParams(window.location.search);
     const categoryNumber = urlParams.get('category');
-    
-    // Test Gist connection
-    console.log('Testing Gist connection...');
-    const connected = await testGistConnection();
-    if (!connected) {
-        console.error('❌ Gist connection failed - check token and GIST_ID in config.js');
-    } else {
-        console.log('✅ Gist connection successful');
-    }
     
     if (categoryNumber) {
         currentCategoryNumber = categoryNumber;
@@ -179,92 +170,43 @@ function createPhotoCard(photo, categoryNumber) {
     return photoCard;
 }
 
-// Comments functionality
-async function openCommentsModal(photoId, photoTitle) {
+// UTTERANCES COMMENTS SYSTEM
+function openCommentsModal(photoId, photoTitle) {
     currentPhotoId = photoId;
     
     document.getElementById('commentsPhotoTitle').textContent = `Comments: ${photoTitle}`;
     document.getElementById('commentsModal').style.display = 'flex';
     
-    // Clear form
-    document.getElementById('commentAuthor').value = '';
-    document.getElementById('commentText').value = '';
-    
-    await loadComments(photoId);
+    // Load Utterances for this photo
+    loadUtterances(photoId);
 }
 
 function closeCommentsModal() {
     document.getElementById('commentsModal').style.display = 'none';
     currentPhotoId = null;
+    
+    // Clear Utterances when closing modal
+    document.getElementById('utterances-comments').innerHTML = '';
 }
 
-async function loadComments(photoId) {
-    const commentsList = document.getElementById('commentsList');
-    commentsList.innerHTML = '<div class="loading">Loading comments...</div>';
+function loadUtterances(photoId) {
+    const utterancesContainer = document.getElementById('utterances-comments');
     
-    try {
-        const comments = await getComments(photoId);
-        
-        if (comments.length === 0) {
-            commentsList.innerHTML = '<div class="no-comments">No comments yet. Be the first!</div>';
-            return;
-        }
-        
-        // Sort by date (newest first)
-        comments.sort((a, b) => new Date(b.date) - new Date(a.date));
-        
-        commentsList.innerHTML = '';
-        comments.forEach(comment => {
-            const commentElement = document.createElement('div');
-            commentElement.className = 'comment-item';
-            commentElement.innerHTML = `
-                <div class="comment-author">${comment.author}</div>
-                <div class="comment-text">${comment.text}</div>
-                <div class="comment-date">${new Date(comment.date).toLocaleString()}</div>
-            `;
-            commentsList.appendChild(commentElement);
-        });
-    } catch (error) {
-        console.error('Error loading comments:', error);
-        commentsList.innerHTML = '<div class="error">Error loading comments. Check console for details.</div>';
-    }
-}
-
-async function addNewComment() {
-    const authorInput = document.getElementById('commentAuthor');
-    const textInput = document.getElementById('commentText');
+    // Clear previous comments
+    utterancesContainer.innerHTML = '';
     
-    const author = authorInput.value.trim();
-    const text = textInput.value.trim();
+    // Create Utterances script
+    const script = document.createElement('script');
+    script.src = "https://utteranc.es/client.js";
     
-    if (!author || !text) {
-        alert('Please fill in all fields');
-        return;
-    }
+    // CONFIGURE THESE SETTINGS:
+    script.setAttribute('repo', "LunaMe0611/GalleryGermanHouse"); // REPLACE with your repository
+    script.setAttribute('issue-term', `photo-gallery-${photoId}`); // Unique for each photo
+    script.setAttribute('theme', "github-dark"); // You can change to: github-light, preferred-color-scheme
+    script.setAttribute('crossorigin', "anonymous");
+    script.async = true;
     
-    if (!currentPhotoId) {
-        alert('Error: no photo selected');
-        return;
-    }
-    
-    try {
-        // Show loading
-        const commentsList = document.getElementById('commentsList');
-        commentsList.innerHTML = '<div class="loading">Adding comment...</div>';
-        
-        await addComment(currentPhotoId, author, text);
-        
-        // Clear form
-        authorInput.value = '';
-        textInput.value = '';
-        
-        // Refresh comments list
-        await loadComments(currentPhotoId);
-        
-    } catch (error) {
-        console.error('Error adding comment:', error);
-        alert('Error adding comment. Please check console for details and ensure GitHub token is valid.');
-    }
+    utterancesContainer.appendChild(script);
 }
 
 // Close modal when clicking outside
@@ -283,18 +225,4 @@ document.addEventListener('keydown', function(e) {
 
 function goBack() {
     window.location.href = 'index.html';
-}
-
-// Gist connection test (from comments-github.js)
-async function testGistConnection() {
-    try {
-        const gist = await getGist();
-        console.log('✅ Gist connection OK');
-        console.log('Gist URL:', gist.html_url);
-        console.log('Files:', Object.keys(gist.files));
-        return true;
-    } catch (error) {
-        console.log('❌ Gist connection failed:', error);
-        return false;
-    }
 }
