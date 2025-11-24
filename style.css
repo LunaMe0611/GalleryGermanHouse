@@ -229,31 +229,31 @@ body {
     }
     
     /* Более компактное расположение на телефонах */
-    .circle-1 { top: 15%; left: 10%; }
-    .circle-2 { top: 20%; left: 15%; }
-    .circle-3 { top: 25%; left: 10%; }
-    .circle-4 { top: 30%; left: 15%; }
-    .circle-5 { top: 35%; left: 10%; }
-    .circle-6 { top: 40%; left: 15%; }
-    .circle-7 { top: 45%; left: 10%; }
-    .circle-8 { top: 50%; left: 15%; }
-    .circle-9 { top: 55%; left: 10%; }
-    .circle-10 { top: 60%; left: 15%; }
-    .circle-11 { top: 65%; left: 10%; }
-    .circle-12 { top: 70%; left: 15%; }
+    .circle-1 { top: 15%; left: 7%; }
+    .circle-2 { top: 20%; left: 12%; }
+    .circle-3 { top: 25%; left: 7%; }
+    .circle-4 { top: 30%; left: 12%; }
+    .circle-5 { top: 35%; left: 7%; }
+    .circle-6 { top: 40%; left: 12%; }
+    .circle-7 { top: 45%; left: 7%; }
+    .circle-8 { top: 50%; left: 12%; }
+    .circle-9 { top: 55%; left: 7%; }
+    .circle-10 { top: 60%; left: 12%; }
+    .circle-11 { top: 65%; left: 7%; }
+    .circle-12 { top: 70%; left: 12%; }
     
-    .circle-13 { top: 15%; right: 10%; }
-    .circle-14 { top: 20%; right: 15%; }
-    .circle-15 { top: 25%; right: 10%; }
-    .circle-16 { top: 30%; right: 15%; }
-    .circle-17 { top: 35%; right: 10%; }
-    .circle-18 { top: 40%; right: 15%; }
-    .circle-19 { top: 45%; right: 10%; }
-    .circle-20 { top: 50%; right: 15%; }
-    .circle-21 { top: 55%; right: 10%; }
-    .circle-22 { top: 60%; right: 15%; }
-    .circle-23 { top: 65%; right: 10%; }
-    .circle-24 { top: 70%; right: 15%; }
+    .circle-13 { top: 15%; right: 7%; }
+    .circle-14 { top: 20%; right: 12%; }
+    .circle-15 { top: 25%; right: 7%; }
+    .circle-16 { top: 30%; right: 12%; }
+    .circle-17 { top: 35%; right: 7%; }
+    .circle-18 { top: 40%; right: 12%; }
+    .circle-19 { top: 45%; right: 7%; }
+    .circle-20 { top: 50%; right: 12%; }
+    .circle-21 { top: 55%; right: 7%; }
+    .circle-22 { top: 60%; right: 12%; }
+    .circle-23 { top: 65%; right: 7%; }
+    .circle-24 { top: 70%; right: 12%; }
     
     .simple-add-btn {
         width: 50px;
@@ -299,6 +299,7 @@ body {
     .circle-23 { right: 30%; }
     .circle-24 { right: 35%; }
 }
+
 
 
 
