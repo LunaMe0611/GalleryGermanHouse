@@ -252,8 +252,8 @@ body {
     .circle-20 { top: 60%; right: 25%; }
     .circle-21 { top: 65%; right: 20%; }
     .circle-22 { top: 70%; right: 25%; }
-    .circle-23 { top: 70%; right: 34%; }
-    .circle-24 { top: 70%; right: 55%; }
+    .circle-23 { top: 70%; right: 38%; }
+    .circle-24 { top: 70%; right: 50%; }
     
     .simple-add-btn {
         width: 50px;
@@ -299,6 +299,7 @@ body {
     .circle-23 { right: 30%; }
     .circle-24 { right: 35%; }
 }
+
 
 
 
