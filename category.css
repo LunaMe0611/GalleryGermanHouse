@@ -319,11 +319,6 @@ body {
     font-weight: bold;
 }
 
-#commentsCount {
-    color: rgba(255, 255, 255, 0.7);
-    font-family: 'Lucida Calligraphy', 'Lucida Handwriting', cursive, sans-serif;
-    font-size: 0.9em;
-}
 
 .utterances-container {
     flex: 1;
@@ -551,3 +546,4 @@ body {
         transform: none;
     }
 }
+
