@@ -117,6 +117,18 @@ const defaultPhotos = {
             title: '', 
             description: 'No desc',
             image: 'images/categories/3/photo 6.jpg'
+        },
+        { 
+            id: 'cat3_photo7',
+            title: '', 
+            description: 'No desc',
+            image: 'images/categories/3/photo 7.jpg'
+        },
+        { 
+            id: 'cat3_photo8',
+            title: '', 
+            description: 'No desc',
+            image: 'images/categories/3/photo 8.jpg'
         }
     ],
     '4': [
@@ -149,12 +161,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/4/photo 5.jpg'
-        },
-        { 
-            id: 'cat4_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/4/photo 6.jpg'
         }
     ],
     '5': [
@@ -219,18 +225,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/6/photo 4.jpg'
-        },
-        { 
-            id: 'cat6_photo5',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/6/photo 5.jpg'
-        },
-        { 
-            id: 'cat6_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/6/photo 6.jpg'
         }
     ],
     '7': [
@@ -263,12 +257,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/7/photo 5.jpg'
-        },
-        { 
-            id: 'cat7_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/7/photo 6.jpg'
         }
     ],
     '8': [
@@ -301,12 +289,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/8/photo 5.jpg'
-        },
-        { 
-            id: 'cat8_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/8/photo 6.jpg'
         }
     ],
     '9': [
@@ -383,6 +365,12 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/10/photo 6.jpg'
+        },
+        { 
+            id: 'cat10_photo7',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/10/photo 7.jpg'
         }
     ],
     '11': [
@@ -453,12 +441,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/12/photo 5.jpg'
-        },
-        { 
-            id: 'cat12_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/12/photo 6.jpg'
         }
     ],
     '13': [
@@ -523,18 +505,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/14/photo 4.jpg'
-        },
-        { 
-            id: 'cat14_photo5',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/14/photo 5.jpg'
-        },
-        { 
-            id: 'cat14_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/14/photo 6.jpg'
         }
     ],
     '15': [
@@ -567,12 +537,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/15/photo 5.jpg'
-        },
-        { 
-            id: 'cat15_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/15/photo 6.jpg'
         }
     ],
     '16': [
@@ -611,6 +575,12 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/16/photo 6.jpg'
+        },
+        { 
+            id: 'cat16_photo7',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/16/photo 7.jpg'
         }
     ],
     '17': [
@@ -643,12 +613,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/17/photo 5.jpg'
-        },
-        { 
-            id: 'cat17_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/17/photo 6.jpg'
         }
     ],
     '18': [
@@ -687,6 +651,12 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/18/photo 6.jpg'
+        },
+        { 
+            id: 'cat18_photo7',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/18/photo 7.jpg'
         }
     ],
     '19': [
@@ -707,24 +677,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/19/photo 3.jpg'
-        },
-        { 
-            id: 'cat19_photo4',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/19/photo 4.jpg'
-        },
-        { 
-            id: 'cat19_photo5',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/19/photo 5.jpg'
-        },
-        { 
-            id: 'cat19_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/19/photo 6.jpg'
         }
     ],
     '20': [
@@ -763,6 +715,18 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/20/photo 6.jpg'
+        },
+        { 
+            id: 'cat20_photo7',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/20/photo 7.jpg'
+        },
+        { 
+            id: 'cat20_photo8',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/20/photo 8.jpg'
         }
     ],
     '21': [
@@ -795,12 +759,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/21/photo 5.jpg'
-        },
-        { 
-            id: 'cat21_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/21/photo 6.jpg'
         }
     ],
     '22': [
@@ -833,12 +791,6 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/22/photo 5.jpg'
-        },
-        { 
-            id: 'cat22_photo6',
-            title: '', 
-            description: 'No  desc',
-            image: 'images/categories/22/photo 6.jpg'
         }
     ],
     '23': [
@@ -877,6 +829,24 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/23/photo 6.jpg'
+        },
+        { 
+            id: 'cat23_photo7',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/23/photo 7.jpg'
+        },
+        { 
+            id: 'cat23_photo8',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/23/photo 8.jpg'
+        },
+        { 
+            id: 'cat23_photo9',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/23/photo 9.jpg'
         }
     ],
     '24': [
@@ -915,6 +885,18 @@ const defaultPhotos = {
             title: '', 
             description: 'No  desc',
             image: 'images/categories/24/photo 6.jpg'
+        },
+        { 
+            id: 'cat24_photo7',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/24/photo 7.jpg'
+        },
+        { 
+            id: 'cat24_photo8',
+            title: '', 
+            description: 'No  desc',
+            image: 'images/categories/24/photo 8.jpg'
         }
     ]
 };
@@ -1277,5 +1259,6 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
