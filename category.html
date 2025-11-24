@@ -18,20 +18,38 @@
         </div>
     </div>
 
-    <!-- Comments modal -->
-    <div id="commentsModal" class="comments-modal" style="display: none;">
-        <div class="comments-modal-content">
-            <span class="comments-close" onclick="closeCommentsModal()">&times;</span>
-            <h3 id="commentsPhotoTitle">Photo Comments</h3>
+    <!-- Full size photo viewer with comments -->
+    <div id="fullSizeModal" class="full-size-modal" style="display: none;">
+        <div class="full-size-container">
+            <!-- Close button -->
+            <span class="full-size-close" onclick="closeFullSizeModal()">&times;</span>
             
-            <!-- Utterances comments container -->
-            <div class="comments-list">
-                <div id="utterances-comments"></div>
+            <!-- Navigation arrows -->
+            <button class="nav-arrow nav-prev" onclick="navigatePhoto(-1)">❮</button>
+            <button class="nav-arrow nav-next" onclick="navigatePhoto(1)">❯</button>
+            
+            <!-- Photo section -->
+            <div class="photo-viewer">
+                <img id="fullSizeImage" src="" alt="Full size photo" class="full-size-img">
+                <div class="photo-meta">
+                    <h2 id="fullSizeTitle"></h2>
+                    <p id="fullSizeDesc"></p>
+                </div>
+            </div>
+            
+            <!-- Comments section -->
+            <div class="comments-sidebar">
+                <div class="comments-header">
+                    <h3>💬 Comments</h3>
+                    <span id="commentsCount">0 comments</span>
+                </div>
+                
+                <!-- Utterances comments -->
+                <div id="utterances-comments" class="utterances-container"></div>
             </div>
         </div>
     </div>
 
-    <!-- Include scripts -->
     <script src="category.js"></script>
 </body>
 </html>
