@@ -8,912 +8,912 @@ const defaultPhotos = {
     '1': [
         { 
             id: 'cat1_photo1',
-            title: 'Mountain Sunrise', 
-            description: 'Beautiful mountain landscape at sunrise',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/1/photo 1.jpg'
         },
         { 
             id: 'cat1_photo2',
-            title: 'Forest Path', 
-            description: 'Peaceful forest walking path',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/1/photo 2.jpg'
         },
         { 
             id: 'cat1_photo3',
-            title: 'Ocean View', 
-            description: 'Stunning ocean coastline',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/1/photo 3.jpg'
         },
         { 
             id: 'cat1_photo4',
-            title: 'Forest Path', 
-            description: 'Peaceful forest walking path',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/1/photo 4.jpg'
         },
         { 
             id: 'cat1_photo5',
-            title: 'Forest Path', 
-            description: 'Peaceful forest walking path',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/1/photo 5.jpg'
         },
         { 
             id: 'cat1_photo6',
-            title: 'Forest Path', 
-            description: 'Peaceful forest walking path',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/1/photo 6.jpg'
         }
     ],
     '2': [
         { 
             id: 'cat2_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/2/photo 1.jpg'
         },
         { 
             id: 'cat2_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/2/photo 2.jpg'
         },
         { 
             id: 'cat2_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/2/photo 3.jpg'
         },
         { 
             id: 'cat2_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/2/photo 4.jpg'
         },
         { 
             id: 'cat2_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/2/photo 5.jpg'
         },
         { 
             id: 'cat2_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/2/photo 6.jpg'
         }
     ],
     '3': [
         { 
             id: 'cat3_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/3/photo 1.jpg'
         },
         { 
             id: 'cat3_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/3/photo 2.jpg'
         },
         { 
             id: 'cat3_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/3/photo 3.jpg'
         },
         { 
             id: 'cat3_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/3/photo 4.jpg'
         },
         { 
             id: 'cat3_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/3/photo 5.jpg'
         },
         { 
             id: 'cat3_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/3/photo 6.jpg'
         }
     ],
     '4': [
         { 
             id: 'cat4_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/4/photo 1.jpg'
         },
         { 
             id: 'cat4_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No desc',
             image: 'images/categories/4/photo 2.jpg'
         },
         { 
             id: 'cat4_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/4/photo 3.jpg'
         },
         { 
             id: 'cat4_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/4/photo 4.jpg'
         },
         { 
             id: 'cat4_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/4/photo 5.jpg'
         },
         { 
             id: 'cat4_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/4/photo 6.jpg'
         }
     ],
     '5': [
         { 
             id: 'cat5_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/5/photo 1.jpg'
         },
         { 
             id: 'cat5_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/5/photo 2.jpg'
         },
         { 
             id: 'cat5_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/5/photo 3.jpg'
         },
         { 
             id: 'cat5_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/5/photo 4.jpg'
         },
         { 
             id: 'cat5_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/5/photo 5.jpg'
         },
         { 
             id: 'cat5_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/5/photo 6.jpg'
         }
     ],
     '6': [
         { 
             id: 'cat6_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/6/photo 1.jpg'
         },
         { 
             id: 'cat6_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/6/photo 2.jpg'
         },
         { 
             id: 'cat6_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/6/photo 3.jpg'
         },
         { 
             id: 'cat6_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/6/photo 4.jpg'
         },
         { 
             id: 'cat6_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/6/photo 5.jpg'
         },
         { 
             id: 'cat6_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/6/photo 6.jpg'
         }
     ],
     '7': [
         { 
             id: 'cat7_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/7/photo 1.jpg'
         },
         { 
             id: 'cat7_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/7/photo 2.jpg'
         },
         { 
             id: 'cat7_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/7/photo 3.jpg'
         },
         { 
             id: 'cat7_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/7/photo 4.jpg'
         },
         { 
             id: 'cat7_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/7/photo 5.jpg'
         },
         { 
             id: 'cat7_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/7/photo 6.jpg'
         }
     ],
     '8': [
         { 
             id: 'cat8_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/8/photo 1.jpg'
         },
         { 
             id: 'cat8_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/8/photo 2.jpg'
         },
         { 
             id: 'cat8_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/8/photo 3.jpg'
         },
         { 
             id: 'cat8_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/8/photo 4.jpg'
         },
         { 
             id: 'cat8_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/8/photo 5.jpg'
         },
         { 
             id: 'cat8_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/8/photo 6.jpg'
         }
     ],
     '9': [
         { 
             id: 'cat9_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/9/photo 1.jpg'
         },
         { 
             id: 'cat9_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/9/photo 2.jpg'
         },
         { 
             id: 'cat9_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/9/photo 3.jpg'
         },
         { 
             id: 'cat9_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/9/photo 4.jpg'
         },
         { 
             id: 'cat9_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/9/photo 5.jpg'
         },
         { 
             id: 'cat9_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/9/photo 6.jpg'
         }
     ],
     '10': [
         { 
             id: 'cat10_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/10/photo 1.jpg'
         },
         { 
             id: 'cat10_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/10/photo 2.jpg'
         },
         { 
             id: 'cat10_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/10/photo 3.jpg'
         },
         { 
             id: 'cat10_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/10/photo 4.jpg'
         },
         { 
             id: 'cat10_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/10/photo 5.jpg'
         },
         { 
             id: 'cat10_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/10/photo 6.jpg'
         }
     ],
     '11': [
         { 
             id: 'cat11_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/11/photo 1.jpg'
         },
         { 
             id: 'cat11_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/11/photo 2.jpg'
         },
         { 
             id: 'cat11_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/11/photo 3.jpg'
         },
         { 
             id: 'cat11_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/11/photo 4.jpg'
         },
         { 
             id: 'cat11_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/11/photo 5.jpg'
         },
         { 
             id: 'cat11_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/11/photo 6.jpg'
         }
     ],
     '12': [
         { 
             id: 'cat12_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/12/photo 1.jpg'
         },
         { 
             id: 'cat12_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/12/photo 2.jpg'
         },
         { 
             id: 'cat12_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/12/photo 3.jpg'
         },
         { 
             id: 'cat12_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/12/photo 4.jpg'
         },
         { 
             id: 'cat12_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/12/photo 5.jpg'
         },
         { 
             id: 'cat12_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/12/photo 6.jpg'
         }
     ],
     '13': [
         { 
             id: 'cat13_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/13/photo 1.jpg'
         },
         { 
             id: 'cat13_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/13/photo 2.jpg'
         },
         { 
             id: 'cat13_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/13/photo 3.jpg'
         },
         { 
             id: 'cat13_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/13/photo 4.jpg'
         },
         { 
             id: 'cat13_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/13/photo 5.jpg'
         },
         { 
             id: 'cat13_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/13/photo 6.jpg'
         }
     ],
     '14': [
         { 
             id: 'cat14_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/14/photo 1.jpg'
         },
         { 
             id: 'cat14_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/14/photo 2.jpg'
         },
         { 
             id: 'cat14_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/14/photo 3.jpg'
         },
         { 
             id: 'cat14_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/14/photo 4.jpg'
         },
         { 
             id: 'cat14_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/14/photo 5.jpg'
         },
         { 
             id: 'cat14_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/14/photo 6.jpg'
         }
     ],
     '15': [
         { 
             id: 'cat15_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/15/photo 1.jpg'
         },
         { 
             id: 'cat15_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/15/photo 2.jpg'
         },
         { 
             id: 'cat15_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/15/photo 3.jpg'
         },
         { 
             id: 'cat15_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/15/photo 4.jpg'
         },
         { 
             id: 'cat15_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/15/photo 5.jpg'
         },
         { 
             id: 'cat15_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/15/photo 6.jpg'
         }
     ],
     '16': [
         { 
             id: 'cat16_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/16/photo 1.jpg'
         },
         { 
             id: 'cat16_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/16/photo 2.jpg'
         },
         { 
             id: 'cat16_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/16/photo 3.jpg'
         },
         { 
             id: 'cat16_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/16/photo 4.jpg'
         },
         { 
             id: 'cat16_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/16/photo 5.jpg'
         },
         { 
             id: 'cat16_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/16/photo 6.jpg'
         }
     ],
     '17': [
         { 
             id: 'cat17_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/17/photo 1.jpg'
         },
         { 
             id: 'cat17_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/17/photo 2.jpg'
         },
         { 
             id: 'cat17_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/17/photo 3.jpg'
         },
         { 
             id: 'cat17_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/17/photo 4.jpg'
         },
         { 
             id: 'cat17_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/17/photo 5.jpg'
         },
         { 
             id: 'cat17_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/17/photo 6.jpg'
         }
     ],
     '18': [
         { 
             id: 'cat18_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/18/photo 1.jpg'
         },
         { 
             id: 'cat18_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/18/photo 2.jpg'
         },
         { 
             id: 'cat18_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/18/photo 3.jpg'
         },
         { 
             id: 'cat18_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/18/photo 4.jpg'
         },
         { 
             id: 'cat18_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/18/photo 5.jpg'
         },
         { 
             id: 'cat18_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/18/photo 6.jpg'
         }
     ],
     '19': [
         { 
             id: 'cat19_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/19/photo 1.jpg'
         },
         { 
             id: 'cat19_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/19/photo 2.jpg'
         },
         { 
             id: 'cat19_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/19/photo 3.jpg'
         },
         { 
             id: 'cat19_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/19/photo 4.jpg'
         },
         { 
             id: 'cat19_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/19/photo 5.jpg'
         },
         { 
             id: 'cat19_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/19/photo 6.jpg'
         }
     ],
     '20': [
         { 
             id: 'cat20_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/20/photo 1.jpg'
         },
         { 
             id: 'cat20_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/20/photo 2.jpg'
         },
         { 
             id: 'cat20_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/20/photo 3.jpg'
         },
         { 
             id: 'cat20_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/20/photo 4.jpg'
         },
         { 
             id: 'cat20_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/20/photo 5.jpg'
         },
         { 
             id: 'cat20_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/20/photo 6.jpg'
         }
     ],
     '21': [
         { 
             id: 'cat21_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/21/photo 1.jpg'
         },
         { 
             id: 'cat21_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/21/photo 2.jpg'
         },
         { 
             id: 'cat21_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/21/photo 3.jpg'
         },
         { 
             id: 'cat21_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/21/photo 4.jpg'
         },
         { 
             id: 'cat21_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/21/photo 5.jpg'
         },
         { 
             id: 'cat21_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/21/photo 6.jpg'
         }
     ],
     '22': [
         { 
             id: 'cat22_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/22/photo 1.jpg'
         },
         { 
             id: 'cat22_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/22/photo 2.jpg'
         },
         { 
             id: 'cat22_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/22/photo 3.jpg'
         },
         { 
             id: 'cat22_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/22/photo 4.jpg'
         },
         { 
             id: 'cat22_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/22/photo 5.jpg'
         },
         { 
             id: 'cat22_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/22/photo 6.jpg'
         }
     ],
     '23': [
         { 
             id: 'cat23_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/23/photo 1.jpg'
         },
         { 
             id: 'cat23_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/23/photo 2.jpg'
         },
         { 
             id: 'cat23_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/23/photo 3.jpg'
         },
         { 
             id: 'cat23_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/23/photo 4.jpg'
         },
         { 
             id: 'cat23_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/23/photo 5.jpg'
         },
         { 
             id: 'cat23_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/23/photo 6.jpg'
         }
     ],
     '24': [
         { 
             id: 'cat24_photo1',
-            title: 'Urban Architecture', 
-            description: 'Modern city buildings',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/24/photo 1.jpg'
         },
         { 
             id: 'cat24_photo2',
-            title: 'Street Art', 
-            description: 'Colorful graffiti wall',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/24/photo 2.jpg'
         },
         { 
             id: 'cat24_photo3',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/24/photo 3.jpg'
         },
         { 
             id: 'cat24_photo4',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/24/photo 4.jpg'
         },
         { 
             id: 'cat24_photo5',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/24/photo 5.jpg'
         },
         { 
             id: 'cat24_photo6',
-            title: 'City Lights', 
-            description: 'Night city illumination',
+            title: '', 
+            description: 'No  desc',
             image: 'images/categories/24/photo 6.jpg'
         }
     ]
@@ -1277,4 +1277,5 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
