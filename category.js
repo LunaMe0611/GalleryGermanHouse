@@ -975,22 +975,42 @@ function displayPhotos(photos, photosGrid) {
 function createPhotoCard(photo, index) {
     const photoCard = document.createElement('div');
     photoCard.className = 'photo-card';
+    
+    let infoContent = '';
+    
+    // Добавляем заголовок если есть
+    if (photo.title && photo.title.trim() !== '') {
+        infoContent += `<h3 class="photo-title">${photo.title}</h3>`;
+    }
+    
+    // Добавляем описание если есть и оно не "No desc"
+    if (photo.description && photo.description.trim() !== '' && photo.description !== 'No desc') {
+        infoContent += `<p class="photo-description">${photo.description}</p>`;
+    }
+    
+    // Добавляем дату если есть
+    if (photo.uploadedAt) {
+        infoContent += `<small class="upload-date">Added: ${formatDate(photo.uploadedAt)}</small>`;
+    }
+    
+    // Всегда добавляем кнопки действий
+    infoContent += `
+        <div class="photo-actions">
+            <button class="photo-view-btn" onclick="openFullSizeModal(${index})">
+                👁️ Vollbild
+            </button>
+            <button class="photo-comments-btn" onclick="openFullSizeModal(${index})">
+                💬 dein Humor
+            </button>
+        </div>
+    `;
+    
     photoCard.innerHTML = `
-        <img src="${photo.image}" alt="${photo.title}" class="photo-image" 
+        <img src="${photo.image}" alt="${photo.title || 'Photo'}" class="photo-image" 
              onclick="openFullSizeModal(${index})"
              onerror="handleImageError(this)">
         <div class="photo-info">
-            <h3 class="photo-title">${photo.title}</h3>
-            <p class="photo-description">${photo.description}</p>
-            ${photo.uploadedAt ? `<small class="upload-date">Added: ${formatDate(photo.uploadedAt)}</small>` : ''}
-            <div class="photo-actions">
-                <button class="photo-view-btn" onclick="openFullSizeModal(${index})">
-                    👁️ Vollbild
-                </button>
-                <button class="photo-comments-btn" onclick="openFullSizeModal(${index})">
-                    💬 dein Humor
-                </button>
-            </div>
+            ${infoContent}
         </div>
     `;
     return photoCard;
@@ -1259,6 +1279,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
