@@ -1153,8 +1153,8 @@ function loadUtterances(photoId) {
         return;
     }
     
-    // Просто очищаем контейнер, без loading сообщения
-    utterancesContainer.innerHTML = '';
+    // Оставляем оригинальный код без изменений
+    utterancesContainer.innerHTML = '<div class="loading">Loading comments...</div>';
     
     // Remove any existing Utterances script
     const existingScript = document.querySelector('script[src="https://utteranc.es/client.js"]');
@@ -1173,11 +1173,6 @@ function loadUtterances(photoId) {
     script.setAttribute('crossorigin', "anonymous");
     script.setAttribute('label', "comments");
     script.async = true;
-    
-    script.onerror = function() {
-        console.error('Failed to load Utterances');
-        utterancesContainer.innerHTML = '<div class="error">Failed to load comments. Please check your repository settings.</div>';
-    };
     
     utterancesContainer.appendChild(script);
 }
@@ -1276,6 +1271,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
