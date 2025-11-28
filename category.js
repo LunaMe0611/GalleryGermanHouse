@@ -918,7 +918,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // Load category photos
 function loadCategory(categoryNumber) {
     // Set title
-    document.getElementById('categoryTitle').textContent = `Category ${categoryNumber}`;
+    document.getElementById('categoryTitle').textContent = `${categoryNumber}`;
     
     const photosGrid = document.getElementById('photosGrid');
     photosGrid.innerHTML = '<div class="loading">Loading photos...</div>';
@@ -1259,6 +1259,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
