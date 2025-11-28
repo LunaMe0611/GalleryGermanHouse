@@ -1167,22 +1167,42 @@ function loadUtterances(photoId) {
     script.src = "https://utteranc.es/client.js";
     
     // CONFIGURE THESE SETTINGS FOR YOUR REPOSITORY:
-    script.setAttribute('repo', "LunaMe0611/GalleryGermanHouse"); // REPLACE with your repository
+    script.setAttribute('repo', "YOUR_USERNAME/YOUR_REPO"); // REPLACE with your repository
     script.setAttribute('issue-term', `photo-gallery-${photoId}`);
     script.setAttribute('theme', "github-dark");
     script.setAttribute('crossorigin', "anonymous");
     script.setAttribute('label', "comments");
     script.async = true;
     
-    // Add error handling
+    // Функция для проверки загрузки Utterances
+    function checkUtterancesLoaded() {
+        const utterancesFrame = utterancesContainer.querySelector('iframe');
+        if (utterancesFrame) {
+            // Utterances загрузился, удаляем loading
+            const loadingElement = utterancesContainer.querySelector('.loading');
+            if (loadingElement) {
+                loadingElement.remove();
+            }
+        } else {
+            // Продолжаем проверять каждые 500ms
+            setTimeout(checkUtterancesLoaded, 500);
+        }
+    }
+    
+    script.onload = function() {
+        // Начинаем проверку загрузки
+        setTimeout(checkUtterancesLoaded, 1000);
+    };
+    
+    // Также запускаем проверку на случай если onload не сработает
+    setTimeout(checkUtterancesLoaded, 3000);
+    
     script.onerror = function() {
         console.error('Failed to load Utterances');
         utterancesContainer.innerHTML = '<div class="error">Failed to load comments. Please check your repository settings.</div>';
     };
     
     utterancesContainer.appendChild(script);
-    
-    console.log('Loading Utterances for photo:', photoId);
 }
 
 // EVENT LISTENERS
@@ -1279,6 +1299,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
