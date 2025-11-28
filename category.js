@@ -1153,8 +1153,8 @@ function loadUtterances(photoId) {
         return;
     }
     
-    // Clear previous comments and show loading
-    utterancesContainer.innerHTML = '<div class="loading">Loading comments...</div>';
+    // Просто очищаем контейнер, без loading сообщения
+    utterancesContainer.innerHTML = '';
     
     // Remove any existing Utterances script
     const existingScript = document.querySelector('script[src="https://utteranc.es/client.js"]');
@@ -1173,29 +1173,6 @@ function loadUtterances(photoId) {
     script.setAttribute('crossorigin', "anonymous");
     script.setAttribute('label', "comments");
     script.async = true;
-    
-    // Функция для проверки загрузки Utterances
-    function checkUtterancesLoaded() {
-        const utterancesFrame = utterancesContainer.querySelector('iframe');
-        if (utterancesFrame) {
-            // Utterances загрузился, удаляем loading
-            const loadingElement = utterancesContainer.querySelector('.loading');
-            if (loadingElement) {
-                loadingElement.remove();
-            }
-        } else {
-            // Продолжаем проверять каждые 500ms
-            setTimeout(checkUtterancesLoaded, 500);
-        }
-    }
-    
-    script.onload = function() {
-        // Начинаем проверку загрузки
-        setTimeout(checkUtterancesLoaded, 1000);
-    };
-    
-    // Также запускаем проверку на случай если onload не сработает
-    setTimeout(checkUtterancesLoaded, 3000);
     
     script.onerror = function() {
         console.error('Failed to load Utterances');
@@ -1299,6 +1276,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
