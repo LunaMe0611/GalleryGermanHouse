@@ -1153,7 +1153,7 @@ function loadUtterances(photoId) {
         return;
     }
     
-    // Оставляем loading сообщение - оно нужно для работы Utterances
+    // Clear previous comments and show loading
     utterancesContainer.innerHTML = '<div class="loading">Loading comments...</div>';
     
     // Remove any existing Utterances script
@@ -1174,7 +1174,29 @@ function loadUtterances(photoId) {
     script.setAttribute('label', "comments");
     script.async = true;
     
-    // Add error handling
+    // Функция для проверки загрузки Utterances
+    function checkUtterancesLoaded() {
+        const utterancesFrame = utterancesContainer.querySelector('iframe');
+        if (utterancesFrame) {
+            // Utterances загрузился, удаляем loading
+            const loadingElement = utterancesContainer.querySelector('.loading');
+            if (loadingElement) {
+                loadingElement.remove();
+            }
+        } else {
+            // Продолжаем проверять каждые 500ms
+            setTimeout(checkUtterancesLoaded, 500);
+        }
+    }
+    
+    script.onload = function() {
+        // Начинаем проверку загрузки
+        setTimeout(checkUtterancesLoaded, 1000);
+    };
+    
+    // Также запускаем проверку на случай если onload не сработает
+    setTimeout(checkUtterancesLoaded, 3000);
+    
     script.onerror = function() {
         console.error('Failed to load Utterances');
         utterancesContainer.innerHTML = '<div class="error">Failed to load comments. Please check your repository settings.</div>';
@@ -1277,6 +1299,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
