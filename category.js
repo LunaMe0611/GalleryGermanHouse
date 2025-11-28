@@ -1153,7 +1153,7 @@ function loadUtterances(photoId) {
         return;
     }
     
-    // Оставляем оригинальный код без изменений
+    // Оставляем loading сообщение - оно нужно для работы Utterances
     utterancesContainer.innerHTML = '<div class="loading">Loading comments...</div>';
     
     // Remove any existing Utterances script
@@ -1167,12 +1167,18 @@ function loadUtterances(photoId) {
     script.src = "https://utteranc.es/client.js";
     
     // CONFIGURE THESE SETTINGS FOR YOUR REPOSITORY:
-    script.setAttribute('repo', "YOUR_USERNAME/YOUR_REPO"); // REPLACE with your repository
+    script.setAttribute('repo', "LunaMe0611/GalleryGermanHouse"); // REPLACE with your repository
     script.setAttribute('issue-term', `photo-gallery-${photoId}`);
     script.setAttribute('theme', "github-dark");
     script.setAttribute('crossorigin', "anonymous");
     script.setAttribute('label', "comments");
     script.async = true;
+    
+    // Add error handling
+    script.onerror = function() {
+        console.error('Failed to load Utterances');
+        utterancesContainer.innerHTML = '<div class="error">Failed to load comments. Please check your repository settings.</div>';
+    };
     
     utterancesContainer.appendChild(script);
 }
@@ -1271,6 +1277,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
