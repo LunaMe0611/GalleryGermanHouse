@@ -1154,7 +1154,7 @@ function loadUtterances(photoId) {
     }
     
     // Clear previous comments and show loading
-    utterancesContainer.innerHTML = '<div class="loading">Loading comments...</div>';
+    utterancesContainer.innerHTML = '';
     
     // Remove any existing Utterances script
     const existingScript = document.querySelector('script[src="https://utteranc.es/client.js"]');
@@ -1299,6 +1299,7 @@ window.goBack = goBack;
 window.handleImageError = handleImageError;
 
 console.log('Category gallery initialized');
+
 
 
 
